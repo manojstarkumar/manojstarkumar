@@ -22,6 +22,7 @@ async function updateSites() {
 	for(i in newSites) if(newSites[i]) newText = newText.concat(newSites[i]+";");
 	newText = newText.substring(0, newText.length-1);
 	json.codes = newText;
+	json.action="mod";
 	await postUpdate();
 }
 
@@ -29,6 +30,7 @@ async function updateStatus() {
 	document.getElementById('loading').hidden = false;
 	var newStatus = json.status == 'block' ? 'allow' : 'block';
 	json.status=newStatus;
+	json.action="mod";
 	await postUpdate();
 }
 
